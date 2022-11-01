@@ -12,7 +12,7 @@ export const ProductDetails = () => {
   const { id } = useParams();
   const dispatch = useDispatch();
   const alert = useAlert();
-  const [quantity, setQuantity] = useState(1)
+  const [quantity, setQuantity] = useState(1);
 
   useEffect(() => {
     dispatch(getProductDetails(id));
@@ -22,21 +22,21 @@ export const ProductDetails = () => {
     }
   }, [dispatch, alert, error, id]);
 
-  const aumentaQTY = () =>{
-    const contador = document.querySelector('.count')
-    if(contador.valueAsNumber>=product.stock) return;
+  const aumentaQTY = () => {
+    const contador = document.querySelector(".count");
+    if (contador.valueAsNumber >= product.stock) return;
 
-    const cantidad = contador.valueAsNumber + 1
-    setQuantity(cantidad)
-  }
+    const cantidad = contador.valueAsNumber + 1;
+    setQuantity(cantidad);
+  };
 
-  const disminuyeQTY = () =>{
-    const contador = document.querySelector('.count')
-    if(contador.valueAsNumber<=1) return;
+  const disminuyeQTY = () => {
+    const contador = document.querySelector(".count");
+    if (contador.valueAsNumber <= 1) return;
 
-    const cantidad = contador.valueAsNumber - 1 
-    setQuantity(cantidad)
-  }
+    const cantidad = contador.valueAsNumber - 1;
+    setQuantity(cantidad);
+  };
 
   return (
     <Fragment>
@@ -67,18 +67,48 @@ export const ProductDetails = () => {
               <hr />
               <h5 className="mt-2">Cantidad Disponible:</h5>
               <p>
-                <span id="stock" className={product.stock>0 ? 'grayColor':'redColor'}>
-                {product.stock} Unidades
+                <span
+                  id="stock"
+                  className={product.stock > 0 ? "grayColor" : "redColor"}
+                >
+                  {product.stock} Unidades
                 </span>
               </p>
               <hr />
               <p className="mt-2">Agregar unidades al carrito:</p>
               <div className="stockCounter d-inlin">
-                <button type="button" className="btn btn-danger minus btn-lg" disabled={product.stock===0} onClick={disminuyeQTY}>-</button>&nbsp;&nbsp;
-                <input type="number" className="form-control count d-inline" readOnly value={quantity }></input>&nbsp;&nbsp;
-                <button type="button" className="btn btn-danger plus btn-lg" disabled={product.stock===0} onClick={aumentaQTY}>+</button>&nbsp;&nbsp;
-                <button type="button" className="btn" id="añadir" disabled={product.stock===0}>
-                <img
+                <button
+                  type="button"
+                  className="btn btn-danger minus btn-lg"
+                  disabled={product.stock === 0}
+                  onClick={disminuyeQTY}
+                >
+                  -
+                </button>
+                &nbsp;&nbsp;
+                <input
+                  type="number"
+                  className="form-control count d-inline"
+                  readOnly
+                  value={quantity}
+                ></input>
+                &nbsp;&nbsp;
+                <button
+                  type="button"
+                  className="btn btn-danger plus btn-lg"
+                  disabled={product.stock === 0}
+                  onClick={aumentaQTY}
+                >
+                  +
+                </button>
+                &nbsp;&nbsp;
+                <button
+                  type="button"
+                  className="btn"
+                  id="añadir"
+                  disabled={product.stock === 0}
+                >
+                  <img
                     className="card-image-top mt-auto align-center"
                     width="50"
                     src="../images/car.png"

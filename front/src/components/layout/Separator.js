@@ -1,11 +1,11 @@
-import React from 'react'
+import React from "react";
 
 export const Separator = () => {
   return (
     <div class="barra_ezenty">
-        <br></br>
+      <br></br>
     </div>
-  )
-}
+  );
+};
 
-export default Separator
+export default Separator;

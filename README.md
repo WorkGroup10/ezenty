@@ -69,16 +69,17 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
 
--------------------------------------------------------------------------------------------------------------------------
+---
+
 # Ezenty
+
 Desarrollo Aplicativo tienda - Ciclo4 DevWeb UDEA MINTIC 2022
 
 Primer comentario de prueba hecho por Kimberly
 
-Primer comentario de Cristian 
+Primer comentario de Cristian
 
 Cindy Marcela Cuervo Ferrin - Analista
-
 
 Comentario Jorge Cuervo:
 

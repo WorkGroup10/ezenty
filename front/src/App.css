@@ -1,12 +1,12 @@
 html,
 body {
-  font-family: 'Amazon Ember';
+  font-family: "Amazon Ember";
   width: 100%;
   height: 100%;
   margin: 0px;
   padding: 0px;
   overflow-x: hidden;
-  background-color: #FDB9EA;
+  background-color: #fdb9ea;
 }
 
 /* Scroll Bar */
@@ -28,7 +28,7 @@ body {
 }
 
 nav {
-  background-color: #FDB9EA;
+  background-color: #fdb9ea;
   padding: 1rem 1rem;
 }
 
@@ -40,8 +40,7 @@ nav {
   width: 90%;
   margin-right: 35%;
 }
-f
-#search_field {
+f #search_field {
   height: 2.4rem;
   padding: 1rem;
 }
@@ -59,7 +58,7 @@ f
 }
 
 #cart_count {
-  background-color: #771F6A;
+  background-color: #771f6a;
   padding: 0.2rem 0.5rem;
   border-radius: 0.2rem;
   color: black;
@@ -132,7 +131,7 @@ footer {
 }
 
 .rating-outer::before {
-  content: '\f006 \f006 \f006 \f006 \f006';
+  content: "\f006 \f006 \f006 \f006 \f006";
 }
 
 .rating-inner {
@@ -145,7 +144,7 @@ footer {
 }
 
 .rating-inner::before {
-  content: '\f005 \f005 \f005 \f005 \f005';
+  content: "\f005 \f005 \f005 \f005 \f005";
   color: #f8ce0b;
 }
 
@@ -202,7 +201,7 @@ footer {
   padding-left: 0;
 }
 .loader:after {
-  content: ' ';
+  content: " ";
   display: block;
   width: 64px;
   height: 64px;
@@ -533,11 +532,11 @@ footer {
 }
 
 #sidebar ul li.active > a,
-a[aria-expanded='true'] {
+a[aria-expanded="true"] {
   color: #fff;
   background: #232f3e;
 }
-a[data-toggle='collapse'] {
+a[data-toggle="collapse"] {
   position: relative;
 }
 .dropdown-toggle::after {
@@ -616,37 +615,36 @@ ul.CTAs a {
   color: grey;
 }
 
-
 /* Propio */
 
 .barra_ezenty {
-  background-color: #771F6A;
+  background-color: #771f6a;
 }
 
-h2{
+h2 {
   color: white;
   text-align: center;
   vertical-align: text-top;
-  letter-spacing: 2px;  
-  font-weight:normal;
-  font-size:x-large;
+  letter-spacing: 2px;
+  font-weight: normal;
+  font-size: x-large;
   font-family: fantasy;
 }
-h1{
+h1 {
   color: white;
   text-align: center;
   vertical-align: text-top;
-  letter-spacing: 2px;  
-  font-size:300%;
+  letter-spacing: 2px;
+  font-size: 300%;
   font-family: fantasy;
   letter-spacing: 3px;
 }
-h3{
+h3 {
   color: white;
   text-align: center;
   vertical-align: text-top;
-  letter-spacing: 2px;  
+  letter-spacing: 2px;
   font-weight: lighter;
-  font-size:medium;
+  font-size: medium;
   font-family: fantasy;
 }
