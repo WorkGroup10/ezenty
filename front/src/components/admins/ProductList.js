@@ -1,11 +1,11 @@
 import React, { Fragment, useEffect } from "react";
-import MetaData from "./layout/Metadata";
+import MetaData from "../layout/Metadata";
 import { useDispatch, useSelector } from "react-redux";
-import { getProducts } from "../actions/productsAction";
+import { getProducts } from "../../actions/productsAction";
 import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 
-export const Home = () => {
+export const ProductList = () => {
   const { loading, productos, error } = useSelector((state) => state.products);
   const alert = useAlert();
 
@@ -24,7 +24,7 @@ export const Home = () => {
         <h2>Inspirandonos...</h2>
       ) : (
         <Fragment>
-          <MetaData title="Fragancias que inspiran"></MetaData>
+          <MetaData title="Lista de Productos"></MetaData>
           <h1 id="encabezado_productos" className="container mt-5 text-center">
             Nuestras Fragancias
           </h1>
@@ -40,7 +40,7 @@ export const Home = () => {
                       <img
                         id="imagen_producto"
                         className="card-image-top mt-auto align-center"
-                        src={producto.imagen}
+                        src={"../"+producto.imagen}
                         alt={producto.nombre}
                         style={{backgroundColor:'#771f6a'}}
                       ></img>
@@ -59,19 +59,6 @@ export const Home = () => {
                         >
                           ${producto.precio}
                         </p>
-                        <button
-                          type="button"
-                          className="btn"
-                          id="añadir"
-                          disabled={producto.stock === 0}
-                        >
-                          <img
-                            className="card-image-top mt-auto align-center"
-                            width="50"
-                            src="../images/car.png"
-                            alt="Añadir"
-                          ></img>
-                        </button>
                         <p
                           className="card-text text-center"
                           id="precio_producto"
@@ -90,4 +77,4 @@ export const Home = () => {
   );
 };
 
-export default Home;
+export default ProductList;

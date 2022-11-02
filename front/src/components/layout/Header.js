@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -37,16 +38,36 @@ const Header = () => {
             </div>
           </div>
         </div>
-        <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
-          <span>
-            <button type="button" class="btn btn-secondary px-2" id="login-btn">
-              Inicie Sesion
-            </button>
-          </span>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        <div className="col-12 col-md-3 mt-4 mt-md-0 text-center" >
+          <div className="ml-4 dropdown d-inline">
+            <Link
+              to="#!"
+              className="btn dropdown-toggle text-white mr-4"
+              type="button"
+              id="dropDownMenu"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              style={ {backgroundColor:'#771f6a'}}  
+            >
+            <span>Usuario</span>
+            </Link>
+            <div className="dropdown-menu" aria-labelledby="dropDownMenu" style={{backgroundColor:'#771f6a'}}>
+              <Link className="dropdown-item" to="/usuario">
+                Mi Perfil
+              </Link>
+              <Link className="dropdown-item" to="/administracion">
+                Administracion                
+              </Link>
+              <Link className="dropdown-item" to="/">
+                Cerrar Sesion
+              </Link>
+            </div>
+          </div>
+          &nbsp;
           <img
             className="card-image-top mt-auto align-center"
-            width="50"
+            width="45"
             src="../images/car.png"
             alt="Añadir"
           ></img>
