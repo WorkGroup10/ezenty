@@ -52,14 +52,14 @@ const Header = () => {
             >
             <span>Usuario</span>
             </Link>
-            <div className="dropdown-menu" aria-labelledby="dropDownMenu" style={{backgroundColor:'#771f6a'}}>
-              <Link className="dropdown-item" to="/usuario">
+            <div className="dropdown-menu" aria-labelledby="dropDownMenu" style={{backgroundColor:'#771f6a', color:'white'}}>
+              <Link className="dropdown-item" to="/usuario" style={{color:'white'}}>
                 Mi Perfil
               </Link>
-              <Link className="dropdown-item" to="/administracion">
+              <Link className="dropdown-item" to="/administracion"style={{color:'white'}}>
                 Administracion                
               </Link>
-              <Link className="dropdown-item" to="/">
+              <Link className="dropdown-item" to="/"style={{color:'white'}}>
                 Cerrar Sesion
               </Link>
             </div>

@@ -9,6 +9,7 @@ import { ProductDetails } from "./components/products/ProductDetails.js";
 import {AdminButtons} from "./components/layout/AdminButtons.js"
 import {ProductList} from "./components/admins/ProductList.js"
 import {UsersButtons} from "./components/layout/UsersButtons"
+import {Cart} from "./components/users/Cart.js"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
             <Route path={"/administracion"} element={<AdminButtons />} />
             <Route path={"/administracion/listadoproductos"} element={<AdminButtons />} />
             <Route path={"/usuario/"} element={<UsersButtons />} />
+            <Route path={"/usuario/carrito"} element={<UsersButtons />} />
           </Routes>
         </div>
         <div className="container container-fluid">
@@ -30,6 +32,7 @@ function App() {
             <Route path={"/Home"} element={<Home />} />
             <Route path={"/productos/:id"} element={<ProductDetails />} />
             <Route path={"/administracion/listadoproductos"} element={<ProductList />} />
+            <Route path={"/usuario/carrito"} element={<Cart />} />
           </Routes>
         </div>
         <Separator />

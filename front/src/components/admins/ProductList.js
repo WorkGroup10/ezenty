@@ -65,6 +65,7 @@ export const ProductList = () => {
                         >
                           Stock: {producto.stock} Unidades
                         </p>
+                        <button type="button" className="btn btn-success" id="añadir" style={{backgroundColor:'#771f6a'}}> Editar </button>
                       </div>
                     </div>
                   </div>
