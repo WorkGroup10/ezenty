@@ -5,9 +5,12 @@ export const AdminButtons = () => {
   return (
     <Fragment>
       <hr></hr> 
+      <Link to='/productos/agregar'>
       <button type="button" class="btn btn-outline-secondary btn-lg" style={ {backgroundColor:'#771f6a'}}>
             <h3>Ingresar Productos</h3>
-      </button>
+      </button>                             
+      </Link>
+      
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
       <Link to='/administracion/listadoproductos'>
