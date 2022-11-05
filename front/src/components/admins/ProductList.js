@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 
 export const ProductList = () => {
-  const { loading, productos, error } = useSelector((state) => state.products);
+  const { loading, productos, error } = useSelector(state => state.products);
   const alert = useAlert();
 
   const dispatch = useDispatch();
@@ -21,15 +21,19 @@ export const ProductList = () => {
   return (
     <Fragment>
       {loading ? (
-        <h2>Inspirandonos...</h2>
+        <h2>Cargando Productos...</h2>
       ) : (
         <Fragment>
           <MetaData title="Lista de Productos"></MetaData>
           <h1 id="encabezado_productos" className="container mt-5 text-center">
-            Nuestras Fragancias
+            Productos Registrados
           </h1>
-          <section id="productos" className="container mt-5">
-            <div className="row" >
+          <section
+            id="productos"
+            className="container mt-5"
+            style={{ color: "#771f6a " }}
+          >
+            <div className="row" style={{ margin:'0 auto'}}>
               {productos &&
                 productos.map((producto) => (
                   <div
@@ -40,16 +44,22 @@ export const ProductList = () => {
                       <img
                         id="imagen_producto"
                         className="card-image-top mt-auto align-center"
-                        src={"../"+producto.imagen}
+                        src={"../" + producto.imagen}
                         alt={producto.nombre}
-                        style={{backgroundColor:'#771f6a'}}
+                        style={{ backgroundColor: "#771f6a" }}
                       ></img>
-                      <div className="card-body d-flex flex-column" style={{backgroundColor:'#fdb9ea'}}>
+                      <div
+                        className="card-body d-flex flex-column"
+                        style={{ backgroundColor: "#fdb9ea" }}
+                      >
                         <h5
                           className="card-text text-center"
                           id="titulo_producto"
                         >
-                          <Link to={`productos/${producto._id}`}>
+                          <Link
+                            to={`productos/${producto._id}`}
+                            style={{ color: "#771f6a " }}
+                          >
                             {producto.nombre}
                           </Link>
                         </h5>
@@ -65,9 +75,16 @@ export const ProductList = () => {
                         >
                           Stock: {producto.stock} Unidades
                         </p>
-                        <button type="button" className="btn btn-success" id="añadir" style={{backgroundColor:'#771f6a'}}> Editar </button>
                       </div>
+                        <button
+                          type="button"
+                          className="btn btn-light btn-block"
+                          id="añadir"
+                          style={{ backgroundColor: "#771f6a", color:'white'}}>
+                          Editar
+                        </button>
                     </div>
+
                   </div>
                 ))}
             </div>

@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 
 export const Cart = () => {
-  const { loading, productos, error } = useSelector((state) => state.products);
+  const { loading, productos, error } = useSelector(state => state.products);
   const alert = useAlert();
 
   const dispatch = useDispatch();

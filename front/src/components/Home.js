@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 
 export const Home = () => {
-  const { loading, productos, error } = useSelector((state) => state.products);
+  const { loading, productos, error } = useSelector(state => state.products);
   const alert = useAlert();
 
   const dispatch = useDispatch();
@@ -29,7 +29,7 @@ export const Home = () => {
             Nuestras Fragancias
           </h1>
           <section id="productos" className="container mt-5">
-            <div className="row" >
+            <div className="row" style={{color:'#771f6a '}}>
               {productos &&
                 productos.map((producto) => (
                   <div
@@ -49,7 +49,7 @@ export const Home = () => {
                           className="card-text text-center"
                           id="titulo_producto"
                         >
-                          <Link to={`productos/${producto._id}`}>
+                          <Link to={`productos/${producto._id}`} style={{color:'#771f6a '}}>
                             {producto.nombre}
                           </Link>
                         </h5>

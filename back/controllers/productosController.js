@@ -15,7 +15,7 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
 //Ver la lista de productos
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
-  const productos = await producto.find();
+  const productos = await productos.find();
   if (!productos) {
     return next(new ErrorHandler("No se encontro ningun producto", 404));
   }
