@@ -37,6 +37,15 @@ const productosSchema = mongoose.Schema({
     type: String,
     required: [true, "Por favor ingrese la imagen del producto"],
   },
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+    required: true,
+  },
+  fechaCreacion: {
+    type: Date,
+    default: Date.now,
+  } 
 });
 
 module.exports = mongoose.model("productos", productosSchema);

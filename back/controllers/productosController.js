@@ -1,11 +1,11 @@
 const producto = require("../models/productosModels");
 const catchAsyncErrors = require("../utils/catchAsyncErrors");
 const ErrorHandler = require("../utils/errorHandler");
-const fetch = (url) =>
-import("node-fetch").then(({ default: fetch }) => fetch(url));
+const fetch = (url) => import("node-fetch").then(({ default: fetch }) => fetch(url));
 
 //Crear nuevo producto /api/productos
 exports.newProduct = catchAsyncErrors(async (req, res, next) => {
+  req.body.user = req.user.id;
   const nuevoproducto = await producto.create(req.body);
   res.status(201).json({
     success: true,

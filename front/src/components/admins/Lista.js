@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../../actions/productsAction'
 import {Link } from "react-router-dom"
 
-export const ListProducts = () => {
+export const Lista = () => {
     const { loading, productos, error} = useSelector(state=> state.products)
     const alert= useAlert();
 
@@ -34,7 +34,7 @@ export const ListProducts = () => {
                     sort: 'asc'
                 },
                 {
-                    label: 'Inventario',
+                    label: 'Stock',
                     field: 'stock',
                     sort: 'asc'
                 },
@@ -50,9 +50,9 @@ export const ListProducts = () => {
             data.rows.push({
                 nombre: product.nombre,
                 precio: `$${product.precio}`,
-                inventario: product.stock,
+                stock: product.stock,
                 actions: <Fragment>
-                    <Link to={`/producto/${product._id}`} className="btn btn-primary py-1 px-2">
+                    <Link to={`/productos/${product._id}`} className="btn btn-primary py-1 px-2">
                         <i className="fa fa-eye"></i>
                     </Link><Link to="/" className="btn btn-warning py-1 px-2">
                     <i class="fa fa-pencil"></i>
@@ -61,8 +61,6 @@ export const ListProducts = () => {
                     <Link to="/" className="btn btn-danger py-1 px-2">
                         <i className="fa fa-trash"></i>
                     </Link>
-                    
-
                 </Fragment>
             })
         })
@@ -72,15 +70,11 @@ export const ListProducts = () => {
 
     return (
         <Fragment>
-            <MetaData title={'All Products'} />
+            <MetaData title={'Lista de Ventas'}></MetaData>
             <div className="row">
-                <div className="col-12 col-md-2">
-
-                </div>
-
-                <div className="col-12 col-md-10">
+                <div className="col-12 col-md-12">
                     <Fragment>
-                        <h1 className="my-5">Productos Registrados</h1>
+                        <h1 className="my-5">Lista de Ventas</h1>
 
                         {loading ? <i class="fa fa-refresh fa-spin fa-3x fa-fw"></i> :(
                             <MDBDataTable
@@ -99,4 +93,4 @@ export const ListProducts = () => {
         </Fragment>
     )
 }
-export default ListProducts
+export default Lista
