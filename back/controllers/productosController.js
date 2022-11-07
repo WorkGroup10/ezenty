@@ -2,7 +2,7 @@ const producto = require("../models/productosModels");
 const catchAsyncErrors = require("../utils/catchAsyncErrors");
 const ErrorHandler = require("../utils/errorHandler");
 const fetch = (url) =>
-  import("node-fetch").then(({ default: fetch }) => fetch(url));
+import("node-fetch").then(({ default: fetch }) => fetch(url));
 
 //Crear nuevo producto /api/productos
 exports.newProduct = catchAsyncErrors(async (req, res, next) => {
@@ -15,7 +15,7 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
 //Ver la lista de productos
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
-  const productos = await productos.find();
+  const productos = await producto.find();
   if (!productos) {
     return next(new ErrorHandler("No se encontro ningun producto", 404));
   }
