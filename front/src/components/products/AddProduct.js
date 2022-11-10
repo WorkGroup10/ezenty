@@ -46,19 +46,19 @@ const AddProduct = () => {
                     Seleccione Imagen
                   </label>
                 </div>
-              </div>
-              <br></br>
-              <div>
+              </div>          
+            </table>
+            <br></br>
+            <div>
                 <button
                   id="login_button"
                   type="submit"
-                  className="btn btn-light btn-lg"
+                  className="btn btn-outline-dark btn-lg btn-block"
                 >
                   CREAR
                 </button>
-              </div>   
-              <br></br>           
-            </table>
+            </div>   
+              <br></br> 
         </div>  
       </div>
     </Fragment>
