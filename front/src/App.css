@@ -649,33 +649,33 @@ h3 {
   font-family: fantasy;
 }
 
-.div1{
-  background:#d768c7;
-  color:white;
-  text-align:left;
+.div1 {
+  background: #d768c7;
+  color: white;
+  text-align: left;
   margin-bottom: 10px;
-  padding: 10px;;
+  padding: 10px;
   margin: auto;
-  }
-  .div2{
-    background:#850972;
-    color:white;
-    text-align:center;
-    margin-bottom: 10px;
-    padding: 10px;
-    margin: 1px;
-    position: relative;
-    right: 600px;
-    
-    }
+}
+.div2 {
+  background: #850972;
+  color: white;
+  text-align: center;
+  margin-bottom: 10px;
+  padding: 10px;
+  margin: 1px;
+  right: 600px;
+}
 
-    .cajadiv{
-      display: flex;
-    }
-    .div3{
-      background:#d768c7;
-      color:white;
-      margin-bottom: 10px;
-      padding: 10px;;
-      margin: 100px;
-      }
+.cajadiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.div3 {
+  background: #d768c7;
+  color: white;
+  margin-bottom: 10px;
+  padding: 10px;
+  margin: 100px;
+}
