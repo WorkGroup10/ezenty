@@ -168,7 +168,6 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
   tokenEnviado(user, 200, res);
 });
 
-/*
 //Update perfil de usuario (logueado)
 exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
   //Actualizar el email por user a decisiòn de cada uno
@@ -199,6 +198,7 @@ exports.getAllUsers = catchAsyncErrors(async (req, res, next) => {
 
   res.status(200).json({
     success: true,
+    count: users.length,
     users,
   });
 });
@@ -210,7 +210,7 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
   if (!user) {
     return next(
       new ErrorHandler(
-        `No se ha encontrado ningun usuario con el id: ${req.params.id}`
+        `No se ha encontrado ningun usuario registrado con el id: ${req.params.id}`
       )
     );
   }
@@ -220,6 +220,7 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
     user,
   });
 });
+
 
 //Actualizar perfil de usuario (como administrador)
 exports.updateUser = catchAsyncErrors(async (req, res, next) => {
@@ -241,14 +242,14 @@ exports.updateUser = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
+
 //Eliminar usuario (admin)
 exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
   const user = await User.findById(req.params.id);
 
   if (!user) {
     return next(
-      new ErrorHandler(`Usuario con id: ${req.params.id} 
-      no se encuentra en nuestra base de datos`)
+      new ErrorHandler(`Usuario con id: ${req.params.id} no se encuentra en nuestra base de datos`)
     );
   }
 
@@ -258,4 +259,4 @@ exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
     success: true,
     message: "Usuario eliminado correctamente",
   });
-});*/
+});
