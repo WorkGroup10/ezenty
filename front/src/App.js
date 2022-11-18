@@ -12,6 +12,7 @@ import {UsersButtons} from "./components/layout/UsersButtons"
 import {Cart} from "./components/users/Cart.js"
 import AddProduct from "./components/products/AddProduct";
 import Lista from "./components/admins/Lista";
+import VentasRealizadas from "./components/admins/VentasRealizadas";
 
 function App() {
   return (
@@ -37,6 +38,7 @@ function App() {
             <Route path={"/administracion/listadoproductos"} element={<ProductList />} />
             <Route path={"/usuario/carrito"} element={<Cart />} />
             <Route path={"/productos/Lista"} element={<Lista />} />
+            <Route path={"/productos/Ventas"} element={<VentasRealizadas />} />
           </Routes>
         </div>
         <Separator />
