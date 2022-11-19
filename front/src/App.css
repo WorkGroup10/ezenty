@@ -115,7 +115,7 @@ f #search_field {
 
 /* Footer */
 footer {
-  margin-top: 8rem;
+  margin-top: 2rem;
   color: grey;
   bottom: 0;
   width: 100%;
@@ -683,3 +683,29 @@ h3 {
 .tabl {
   width: 600px;
 }
+
+.page-item.active .page-link {
+  background-color: #850972;
+  border-color: #850972;
+}
+.page-link {
+  background-color: #d768c7;
+  color: white;
+  border-color: #850972;
+}
+.page-link:hover {
+  color: #850972;
+}
+
+.page-item:first-child .page-link {
+  background-color: #d768c7;
+  color: white;
+  border-color: #850972;
+}
+.page-item:last-child .page-link {
+  background-color: #d768c7;
+  color: white;
+  border-color: #850972;
+}
+  
+

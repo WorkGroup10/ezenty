@@ -1,7 +1,10 @@
-const producto = require("../models/productosModels");
 const catchAsyncErrors = require("../utils/catchAsyncErrors");
+const producto = require("../models/productosModels");
+const APIFeatures = require("../utils/apiFeatures");
 const ErrorHandler = require("../utils/errorHandler");
-const fetch = (url) => import("node-fetch").then(({ default: fetch }) => fetch(url));
+
+const fetch = (url) =>
+  import("node-fetch").then(({ default: fetch }) => fetch(url));
 
 //Crear nuevo producto /api/productos
 exports.newProduct = catchAsyncErrors(async (req, res, next) => {
@@ -15,13 +18,26 @@ exports.newProduct = catchAsyncErrors(async (req, res, next) => {
 
 //Ver la lista de productos
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
-  const productos = await producto.find();
+  const resPerPage = 4;
+  const productsCount = await producto.countDocuments();
+
+  const apiFeatures = new APIFeatures(producto.find(), req.query)
+    .searchName()
+    .filter();
+
+  let productos = await apiFeatures.query;
+  let filteredProductsCount = productos.length;
+  apiFeatures.pagination(resPerPage);
+  productos = await apiFeatures.query.clone();
+
   if (!productos) {
     return next(new ErrorHandler("No se encontro ningun producto", 404));
   }
   res.status(200).json({
     success: true,
-    count: productos.length,
+    productsCount,
+    resPerPage,
+    filteredProductsCount,
     productos,
   });
 });

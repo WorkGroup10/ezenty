@@ -8,6 +8,7 @@ import {
   PRODUCT_DETAILS_FAIL,
 } from "../constants/productConstants";
 
+//Ver Productos
 export const productsReducer = (state = { products: [] }, action) => {
   switch (action.type) {
     case ALL_PRODUCTS_REQUEST:
@@ -19,7 +20,9 @@ export const productsReducer = (state = { products: [] }, action) => {
       return {
         loading: false,
         productos: action.payload.productos,
-        cantidad: action.payload.cantidad,
+        productsCount: action.payload.productsCount,
+        resPerPage: action.payload.resPerPage,
+        filteredProductsCount: action.payload.filteredProductsCount
       };
     case ALL_PRODUCTS_FAIL:
       return {

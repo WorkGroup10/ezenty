@@ -1,12 +1,19 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import MetaData from "./layout/Metadata";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../actions/productsAction";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useAlert } from "react-alert";
+import Pagination from "react-js-pagination";
 
 export const Home = () => {
-  const { loading, productos, error } = useSelector(state => state.products);
+  const params = useParams();
+  const keyword = params.keyword;
+  const [precio, setPrecio] = useState([100, 1000000]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const { loading, productos, error, resPerPage, productsCount } = useSelector(
+    (state) => state.products
+  );
   const alert = useAlert();
 
   const dispatch = useDispatch();
@@ -14,9 +21,12 @@ export const Home = () => {
     if (error) {
       return alert.error(error);
     }
-    dispatch(getProducts());
-    alert.success("OK");
-  }, [dispatch]);
+    dispatch(getProducts(currentPage, keyword, precio));
+  }, [dispatch, alert, error, currentPage, keyword, precio]);
+
+  function setCurrentPageNo(pageNumber) {
+    setCurrentPage(pageNumber);
+  }
 
   return (
     <Fragment>
@@ -29,7 +39,7 @@ export const Home = () => {
             Nuestras Fragancias
           </h1>
           <section id="productos" className="container mt-5">
-            <div className="row" style={{color:'#771f6a '}}>
+            <div className="row" style={{ color: "#771f6a " }}>
               {productos &&
                 productos.map((producto) => (
                   <div
@@ -40,16 +50,22 @@ export const Home = () => {
                       <img
                         id="imagen_producto"
                         className="card-image-top mt-auto align-center"
-                        src={producto.imagen}
+                        src={"../"+producto.imagen}
                         alt={producto.nombre}
-                        style={{backgroundColor:'#771f6a'}}
+                        style={{ backgroundColor: "#771f6a" }}
                       ></img>
-                      <div className="card-body d-flex flex-column" style={{backgroundColor:'#fdb9ea'}}>
+                      <div
+                        className="card-body d-flex flex-column"
+                        style={{ backgroundColor: "#fdb9ea" }}
+                      >
                         <h5
                           className="card-text text-center"
                           id="titulo_producto"
                         >
-                          <Link to={`productos/${producto._id}`} style={{color:'#771f6a '}}>
+                          <Link
+                            to={`productos/${producto._id}`}
+                            style={{ color: "#771f6a " }}
+                          >
                             {producto.nombre}
                           </Link>
                         </h5>
@@ -84,6 +100,22 @@ export const Home = () => {
                 ))}
             </div>
           </section>
+          <div className="d-flex justify-content-center mt-5">
+            <Pagination
+              style={{ backgroundColor: "#771f6a" }}
+              class="pagination"
+              activePage={currentPage}
+              itemsCountPerPage={resPerPage}
+              totalItemsCount={productsCount}
+              onChange={setCurrentPageNo}
+              nextPageText={">"}
+              prevPageText={"<"}
+              firstPageText={"<<"}
+              lastPageText={">>"}
+              itemClass="page-item"
+              linkClass="page-link"
+            />
+          </div>
         </Fragment>
       )}
     </Fragment>
