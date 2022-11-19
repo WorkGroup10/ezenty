@@ -5,8 +5,9 @@ import { Search } from "./Search";
 const Header = () => {
   return (
     <Fragment>
+
       <nav className="navbar">
-        <div className="col-12 col-md-3">
+        <div className="col-12 col-md-2">
           <div className="navbar-brand">
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <img
@@ -24,7 +25,12 @@ const Header = () => {
           </div>
           {/*Aqui va buscar*/}
           <Search />
-        </div>
+        </div>       
+        <Link to='/login'>
+          <button type="button" class="btn btn-outline-secondary btn-lg" style={{backgroundColor:'#771f6a', border:'#771f6a'}}>
+              <h3>Inicial Sesion</h3>
+            </button>
+          </Link>
         <div className="col-12 col-md-3 mt-4 mt-md-0 text-center">
           <div className="ml-4 dropdown d-inline">
             <Link
@@ -35,6 +41,7 @@ const Header = () => {
               data-toggle="dropdown"
               aria-haspopup="true"
               aria-expanded="false"
+              color="#771f6a"
               style={{ backgroundColor: "#771f6a" }}
             >
               <span>Usuario</span>

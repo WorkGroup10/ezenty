@@ -5,14 +5,12 @@ export const UsersButtons = () => {
   return (
     <Fragment>
       <hr></hr> 
-          <Link to='/'>
+      <div className="btn-toolbar justify-content-between">
+      <Link to='/'>
             <button type="button" class="btn btn-outline-secondary btn-lg" style={{backgroundColor:'#771f6a'}}>
               <h3>Visualizar Productos</h3>
             </button>                                
           </Link>
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <Link to='/usuario/carrito'>
           <button type="button" class="btn btn-outline-secondary btn-lg" style={{backgroundColor:'#771f6a'}}>
               <h3>Carrito de Compras &nbsp;<img
@@ -23,6 +21,16 @@ export const UsersButtons = () => {
               ></img></h3>
             </button>
           </Link>
+          <Link to="/usuario">
+          <button
+            type="button"
+            class="btn btn-outline-secondary btn-lg"
+            style={{ backgroundColor: "#771f6a" }}
+          >
+            <h3>Volver</h3>
+          </button>
+        </Link>
+      </div>
       <hr></hr>
     </Fragment>
   );

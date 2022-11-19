@@ -9,7 +9,7 @@ import Pagination from "react-js-pagination";
 export const Cart = () => {
   const params = useParams();
   const keyword = params.keyword;
-  const [precio, setPrecio] = useState([100, 1000000]);
+  const [precio] = useState([100, 1000000]);
   const [currentPage, setCurrentPage] = useState(1);
   const { loading, productos, error, resPerPage, productsCount } = useSelector(
     (state) => state.products

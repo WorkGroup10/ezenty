@@ -11,6 +11,7 @@
     "bootstrap": "^5.2.2",
     "mdbreact": "^5.2.0",
     "nodemon": "^2.0.20",
+    "rc-slider": "^10.1.0",
     "react": "^18.2.0",
     "react-alert": "^7.0.3",
     "react-alert-template-basic": "^1.0.2",

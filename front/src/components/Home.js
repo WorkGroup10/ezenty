@@ -5,11 +5,13 @@ import { getProducts } from "../actions/productsAction";
 import { useParams, Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import Pagination from "react-js-pagination";
+import Slider from "rc-slider";
+import "rc-slider/assets/index.css";
 
 export const Home = () => {
   const params = useParams();
   const keyword = params.keyword;
-  const [precio, setPrecio] = useState([100, 1000000]);
+  const [precio, setPrecio] = useState([10000, 250000]);
   const [currentPage, setCurrentPage] = useState(1);
   const { loading, productos, error, resPerPage, productsCount } = useSelector(
     (state) => state.products
@@ -39,18 +41,38 @@ export const Home = () => {
             Nuestras Fragancias
           </h1>
           <section id="productos" className="container mt-5">
-            <div className="row" style={{ color: "#771f6a " }}>
+            {/*<hr></hr>
+            <h2>Filtra por Precio</h2>
+            <Slider
+              range
+              className="t-slider"
+              marks={{ 10000: `$10.000`, 250000: `$250.000` }}
+              min={10000}
+              max={250000}
+              defaultValue={[10000, 250000]}
+              tipFormatter={(value) => `$${value}`}
+              tipProps={{
+                placement: "top",
+                prefixCls: "rc-slider-tooltip",
+                visible: true,
+              }}
+              value={precio}
+              onChange={(precio) => setPrecio(precio)}
+            ></Slider>
+            <br />
+            <hr></hr>*/}
+            <div className="row" style={{ color: "#771f6a" }}>
               {productos &&
                 productos.map((producto) => (
                   <div
                     key={producto._id}
-                    className="col-sm-12 col-md-6 col-lg-3 my-3"
+                    className="col-sm-12 col-md-6 col-lg-3 my-4"
                   >
                     <div className="card rounded background-false">
                       <img
                         id="imagen_producto"
                         className="card-image-top mt-auto align-center"
-                        src={"../"+producto.imagen}
+                        src={"../" + producto.imagen}
                         alt={producto.nombre}
                         style={{ backgroundColor: "#771f6a" }}
                       ></img>
@@ -63,7 +85,7 @@ export const Home = () => {
                           id="titulo_producto"
                         >
                           <Link
-                            to={`productos/${producto._id}`}
+                            to={`../productos/${producto._id}`}
                             style={{ color: "#771f6a " }}
                           >
                             {producto.nombre}
