@@ -1,12 +1,19 @@
-import React, { Fragment, useEffect } from "react";
+import React, { Fragment, useEffect, useState } from "react";
 import MetaData from "../layout/Metadata";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../../actions/productsAction";
-import { Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useAlert } from "react-alert";
+import Pagination from "react-js-pagination";
 
 export const Cart = () => {
-  const { loading, productos, error } = useSelector(state => state.products);
+  const params = useParams();
+  const keyword = params.keyword;
+  const [precio, setPrecio] = useState([100, 1000000]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const { loading, productos, error, resPerPage, productsCount } = useSelector(
+    (state) => state.products
+  );
   const alert = useAlert();
 
   const dispatch = useDispatch();
@@ -14,9 +21,12 @@ export const Cart = () => {
     if (error) {
       return alert.error(error);
     }
-    dispatch(getProducts());
-    alert.success("OK");
-  }, [dispatch]);
+    dispatch(getProducts(currentPage, keyword, precio));
+  }, [dispatch, alert, error, currentPage, keyword, precio]);
+
+  function setCurrentPageNo(pageNumber) {
+    setCurrentPage(pageNumber);
+  }
 
   return (
     <Fragment>
@@ -50,39 +60,63 @@ export const Cart = () => {
                           src={"../" + producto.imagen}
                           alt={producto.nombre}
                           width="60"
-                          style={{alignSelf:'bottom'}}
+                          style={{ alignSelf: "bottom" }}
                         ></img>
                       </th>
                       <th>1</th>
                       <th>{producto.nombre}</th>
-                      <th style={{textAlign:'right'}}>${producto.precio}</th>
-                      <th style={{textAlign:'right'}}>${producto.precio}</th>
+                      <th style={{ textAlign: "right" }}>${producto.precio}</th>
+                      <th style={{ textAlign: "right" }}>${producto.precio}</th>
                     </tr>
                   ))}
-                <tr style={{textAlign:'right'}} type="money">
-                  <th colSpan={4} >Total</th>
+                <tr style={{ textAlign: "right" }} type="money">
+                  <th colSpan={4}>Total</th>
                   <th scope="col">$1.000.000</th>
                 </tr>
               </tbody>
             </table>
+            <div className="d-flex justify-content-center mt-5">
+                  <Pagination
+                    style={{ backgroundColor: "#771f6a" }}
+                    class="pagination"
+                    activePage={currentPage}
+                    itemsCountPerPage={resPerPage}
+                    totalItemsCount={productsCount}
+                    onChange={setCurrentPageNo}
+                    nextPageText={">"}
+                    prevPageText={"<"}
+                    firstPageText={"<<"}
+                    lastPageText={">>"}
+                    itemClass="page-item"
+                    linkClass="page-link"
+                  />
+                </div>
+                <hr></hr>
           </section>
           <div>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-
-            <Link to='/'>
-                <button type="button" class="btn btn-outline-secondary btn-lg" style={{backgroundColor:'#771f6a'}}>
+            <Link to="/">
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-lg"
+                style={{ backgroundColor: "#771f6a" }}
+              >
                 <h3>Finalizar Compra</h3>
-                </button>                                
+              </button>
             </Link>
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            <Link to='/usuario/'>
-            <button type="button" class="btn btn-outline-secondary btn-lg" style={{backgroundColor:'#771f6a'}}>
+            <Link to="/usuario/">
+              <button
+                type="button"
+                class="btn btn-outline-secondary btn-lg"
+                style={{ backgroundColor: "#771f6a" }}
+              >
                 <h3>Cancelar</h3>
-                </button>
+              </button>
             </Link>
             <hr></hr>
           </div>
