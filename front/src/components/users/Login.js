@@ -15,7 +15,7 @@ export const Login = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/usuario");
+      navigate("/userlogged");
     }
     if (error) {
       dispatch(clearErrors);

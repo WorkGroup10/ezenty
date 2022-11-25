@@ -33,7 +33,7 @@ export const AdminButtons = () => {
             <h3>Visualizar Ventas</h3>
           </button>
         </Link>
-        <Link to="/administracion">
+        <Link to="/userlogged">
           <button
             type="button"
             class="btn btn-outline-secondary btn-lg"

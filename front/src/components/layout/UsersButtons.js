@@ -21,7 +21,7 @@ export const UsersButtons = () => {
               ></img></h3>
             </button>
           </Link>
-          <Link to="/usuario">
+          <Link to="/userlogged">
           <button
             type="button"
             class="btn btn-outline-secondary btn-lg"
