@@ -15,7 +15,7 @@ export const Login = () => {
 
   useEffect(() => {
     if (isAuthenticated) {
-      navigate("/");
+      navigate("/usuario");
     }
     if (error) {
       dispatch(clearErrors);
@@ -35,7 +35,7 @@ export const Login = () => {
         <Fragment>
           <MetaData title={"Inicie Sesión"} />
           <div className="row wrapper">
-            <div className="col-10 col-lg-10">
+            <div className="col-10 col-lg-8">
               <form className="shadow-lg" onSubmit={submitHandler}>
                 <h1 className="mb-2">Inicio de Sesión</h1>
                 {/*Campo para email*/}
@@ -72,7 +72,7 @@ export const Login = () => {
                 >
                   Ingresar
                 </button>
-                <Link to="/log-up" className="float-right mt-3">
+                <Link to="/logup" className="float-right mt-3">
                   <h3>Crear una cuenta nueva</h3>
                 </Link>
               </form>

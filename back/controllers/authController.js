@@ -4,19 +4,26 @@ const catchAsyncErrors = require("../utils/catchAsyncErrors");
 const tokenEnviado = require("../utils/jwtToken");
 const sendEmail = require("../utils/sendEmail");
 const crypto = require("crypto");
+const cloudinary = require("cloudinary");
 
 //Registrar un nuevo usuario /api/usuario/registro
 
 exports.registroUsuario = catchAsyncErrors(async (req, res, next) => {
   const { nombre, email, password } = req.body;
 
+  const result = await cloudinary.v2.uploader.upload(req.body.avatar, {
+    folder: "avatars",
+    width: 240,
+    crop: "scale",
+  });
+
   const user = await User.create({
     nombre,
     email,
     password,
     avatar: {
-      public_id: "ANd9GcQKZwmqodcPdQUDRt6E5cPERZDWaqy6ITohlQ&usqp",
-      url: "./Images/avatar.png",
+      public_id:result.public_id,
+      url:result.secure_url
     },
   });
 
@@ -221,7 +228,6 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-
 //Actualizar perfil de usuario (como administrador)
 exports.updateUser = catchAsyncErrors(async (req, res, next) => {
   const nuevaData = {
@@ -242,14 +248,15 @@ exports.updateUser = catchAsyncErrors(async (req, res, next) => {
   });
 });
 
-
 //Eliminar usuario (admin)
 exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
   const user = await User.findById(req.params.id);
 
   if (!user) {
     return next(
-      new ErrorHandler(`Usuario con id: ${req.params.id} no se encuentra en nuestra base de datos`)
+      new ErrorHandler(
+        `Usuario con id: ${req.params.id} no se encuentra en nuestra base de datos`
+      )
     );
   }
 

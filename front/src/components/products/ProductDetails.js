@@ -2,7 +2,7 @@ import React, { Fragment, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import MetaData from "../layout/Metadata";
 import { useParams } from "react-router-dom";
-import { getProductDetails, clearErrors } from "../../actions/productsAction";
+import { getProductDetails } from "../../actions/productsAction";
 import { useAlert } from "react-alert";
 
 export const ProductDetails = () => {

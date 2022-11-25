@@ -14,6 +14,7 @@ import AddProduct from "./components/products/AddProduct";
 import Lista from "./components/admins/Lista";
 import VentasRealizadas from "./components/admins/VentasRealizadas";
 import { Login } from "./components/users/Login";
+import { Register } from "./components/users/Register";
 
 function App() {
   return (
@@ -23,7 +24,6 @@ function App() {
         <Separator /> 
         <div className="container container-fluid">
           <Routes>
-            <Route path={"/login"} element={<Login />} />
             <Route path={"/administracion"} element={<AdminButtons />} />
             <Route path={"/administracion/listadoproductos"} element={<AdminButtons />} />
             <Route path={"/administracion/agregar"} element={<AdminButtons />} />
@@ -44,6 +44,8 @@ function App() {
             <Route path={"/productos/Lista"} element={<Lista />} />
             <Route path={"/administracion/Ventas"} element={<VentasRealizadas />} />
             <Route path={"/administracion/agregar"} element={<AddProduct />} />
+            <Route path={"/login"} element={<Login />} />
+            <Route path={"/logup"} element={<Register />} />
           </Routes>
         </div>
         <Separator />

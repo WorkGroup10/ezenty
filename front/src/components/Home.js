@@ -5,13 +5,12 @@ import { getProducts } from "../actions/productsAction";
 import { useParams, Link } from "react-router-dom";
 import { useAlert } from "react-alert";
 import Pagination from "react-js-pagination";
-import Slider from "rc-slider";
 import "rc-slider/assets/index.css";
 
 export const Home = () => {
   const params = useParams();
   const keyword = params.keyword;
-  const [precio, setPrecio] = useState([10000, 250000]);
+  const [precio] = useState([10000, 250000]);
   const [currentPage, setCurrentPage] = useState(1);
   const { loading, productos, error, resPerPage, productsCount } = useSelector(
     (state) => state.products
